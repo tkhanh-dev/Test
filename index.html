@@ -196,6 +196,31 @@
                 visibility: hidden;
             }
         }
+
+        /* Thêm điều chỉnh cho khi thu nhỏ */
+        @media (max-width: 480px) {
+            body {
+                background: linear-gradient(135deg, #00bfff, #8a2be2);
+                overflow: auto; /* Bỏ chế độ overflow để người dùng có thể vuốt */
+            }
+            .profile-container {
+                padding: 10px;
+            }
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+            .profile-box {
+                max-width: 100%;
+                padding: 15px;
+            }
+            .rainbow-title {
+                font-size: 20px;
+            }
+            .goals {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
