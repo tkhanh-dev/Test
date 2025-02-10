@@ -18,8 +18,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            transition: background 0.5s ease-in-out;
-            transition: all 0.3s ease-in-out;
+            transition: all 0.5s ease-in-out;
         }
 
         /* Hiệu ứng Parallax cho nền */
@@ -39,20 +38,26 @@
         /* Thiết lập container chính cho profile */
         .profile-container {
             width: 100%;
-            max-width: 500px; /* Giới hạn chiều rộng tối đa */
+            max-width: 500px; 
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column; /* Để các phần tử xếp theo cột */
+            flex-direction: column;
             padding: 20px;
             text-align: center;
             opacity: 0;
             animation: fadeIn 1s forwards;
         }
 
+        /* Hiệu ứng fadeIn cho profile */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Khung chứa thông tin profile với nền gradient */
         .profile-box {
-            background: linear-gradient(135deg, #1e90ff, #8a2be2); /* Nền gradient */
+            background: linear-gradient(135deg, #1e90ff, #8a2be2);
             padding: 35px;
             border-radius: 25px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
@@ -64,56 +69,23 @@
         }
 
         .profile-box:hover {
-            transform: translateY(-12px); /* Hiệu ứng nâng lên khi hover */
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3); /* Tăng độ đổ bóng */
+            transform: translateY(-12px); 
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3); 
         }
 
         /* Khung cho tiêu đề "Thông Tin Cá Nhân" */
         .rainbow-title {
             display: inline-block;
             padding: 15px 30px;
-            border: 3px solid #fff; /* Viền trắng cho khung */
+            border: 3px solid #fff; 
             border-radius: 10px;
-            animation: rainbow-text 5s linear infinite; /* Thêm hiệu ứng màu cầu vồng */
+            animation: rainbow-text 5s linear infinite; 
             font-size: 28px;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        /* Khung avatar hình tròn */
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* Làm avatar thành hình tròn */
-            background-image: url('https://files.catbox.moe/p2uen9.jpeg'); /* Avatar mẫu */
-            background-size: cover; /* Đảm bảo ảnh vừa với khung */
-            background-position: center;
-            margin-bottom: 30px; /* Khoảng cách giữa avatar và tiêu đề */
-            border: 6px solid #fff; /* Thêm viền trắng cho avatar */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .avatar:hover {
-            transform: scale(1.1); /* Hiệu ứng phóng to avatar khi hover */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Thêm đổ bóng */
-        }
-
-        /* Định dạng cho các đoạn văn trong profile */
-        .profile-box p {
-            font-size: 20px;
-            color: #fff; /* Màu chữ trắng */
-            margin: 15px 0;
-            font-weight: 500;
-        }
-
-        /* Định dạng cho các đoạn văn đậm */
-        .profile-box p strong {
-            color: #ffdd57; /* Màu vàng cho phần mạnh mẽ */
-        }
-
-        /* Hiệu ứng màu chữ cầu vồng */
         @keyframes rainbow-text {
             0% { color: red; }
             14% { color: orange; }
@@ -125,30 +97,60 @@
             100% { color: red; }
         }
 
-        /* Hiệu ứng Loading cho trang */
-        .loading {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2rem;
+        /* Avatar */
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-image: url('https://files.catbox.moe/p2uen9.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 30px;
+            border: 6px solid #fff;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .avatar:hover {
+            transform: scale(1.2) rotate(10deg); /* Phóng to và xoay avatar khi hover */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); 
+        }
+
+        /* Mục tiêu và kỹ năng */
+        .goals {
+            margin-top: 30px;
+            font-size: 18px;
             color: #fff;
-            font-weight: bold;
-            z-index: 100;
-            animation: fadeOut 3s forwards;
         }
 
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                visibility: hidden;
-            }
+        .goals ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        /* Điều chỉnh responsive cho thiết bị di động */
+        .goals ul li {
+            margin: 10px 0;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ecf0f1;
+        }
+
+        .dark-mode .profile-box {
+            background: linear-gradient(135deg, #16a085, #1abc9c);
+        }
+
+        .dark-mode .rainbow-title {
+            border-color: #2c3e50;
+        }
+
+        .dark-mode .avatar {
+            border: 6px solid #2c3e50;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .profile-container {
                 padding: 15px;
@@ -165,38 +167,22 @@
                 font-size: 24px;
             }
         }
-
-        /* Theme Switcher - Dark/Light Mode */
-        body.dark-mode {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: #ecf0f1;
-        }
-
-        body.dark-mode .profile-box {
-            background: linear-gradient(135deg, #16a085, #1abc9c);
-        }
-
-        body.dark-mode .rainbow-title {
-            border-color: #2c3e50;
-        }
-
-        body.dark-mode .avatar {
-            border: 6px solid #2c3e50;
-        }
     </style>
 </head>
 <body>
     <div class="parallax"></div>
-    <!-- Hiệu ứng loading -->
     <div class="loading">Đang tải...</div>
 
     <div class="profile-container">
-        <!-- Khung avatar hình tròn -->
+        <!-- Avatar -->
         <div class="avatar"></div>
-        <!-- Khung cho tiêu đề "Thông Tin Cá Nhân" nhấp nháy -->
+
+        <!-- Tiêu đề -->
         <div class="rainbow-title">
             Thông Tin Cá Nhân
         </div>
+
+        <!-- Thông tin profile -->
         <div class="profile-box">
             <p><strong>Họ và tên:</strong> Khanh Dev</p>
             <p><strong>Ngày sinh:</strong> 29/04/2010</p>
@@ -204,10 +190,23 @@
             <p><strong>Email:</strong> khanhshado9@gmail.com</p>
             <p><strong>Sở thích:</strong> Gaming, Chơi thể thao, Coding</p>
         </div>
+
+        <!-- Mục tiêu và Kỹ năng -->
+        <div class="goals">
+            <h3>Mục tiêu nghề nghiệp</h3>
+            <ul>
+                <li>Trở thành lập trình viên full-stack chuyên nghiệp.</li>
+                <li>Học hỏi và cải thiện kỹ năng mỗi ngày.</li>
+            </ul>
+            <h3>Kỹ năng</h3>
+            <ul>
+                <li>JavaScript, Python, HTML, CSS</li>
+                <li>React, Node.js</li>
+            </ul>
+        </div>
     </div>
 
     <script>
-        // Ẩn hiệu ứng loading khi trang đã tải xong
         window.onload = function() {
             document.querySelector('.loading').style.display = 'none';
             document.querySelector('.profile-container').style.opacity = 1;
